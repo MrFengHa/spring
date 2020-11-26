@@ -1,6 +1,6 @@
 package com.home.test;
 
-import com.home.aop.TargetInterface;
+import com.home.aop_xml.TargetInterface;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

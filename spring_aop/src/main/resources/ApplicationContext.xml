@@ -5,23 +5,23 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--  目标对象  -->
-    <bean id="target" class="com.home.aop.Target"></bean>
+    <bean id="target" class="com.home.aop_xml.Target"></bean>
     <!--切面对象-->
-    <bean id="myAspect" class="com.home.aop.MyAspect"></bean>
+    <bean id="myAspect" class="com.home.aop_xml.MyAspect"></bean>
 
     <!--  配置织入 告诉spring那些方法需要进行那些增强  -->
     <aop:config>
         <!--  声明切面  -->
         <aop:aspect ref="myAspect">
             <!--抽取切点表达式-->
-            <aop:pointcut id="myPointcut" expression="execution(* com.home.aop.Target.save())"/>
+            <aop:pointcut id="myPointcut" expression="execution(* com.home.aop_xml.Target.save())"/>
             <!--切面：切点+通知-->
-            <aop:before method="before" pointcut="execution(public void com.home.aop.Target.save())"></aop:before>
-            <aop:around method="around" pointcut="execution(* com.home.aop.Target.save())"></aop:around>
+            <aop:before method="before" pointcut="execution(public void com.home.aop_xml.Target.save())"></aop:before>
+            <aop:around method="around" pointcut="execution(* com.home.aop_xml.Target.save())"></aop:around>
             <aop:after-throwing method="throwing"
-                                pointcut="execution(* com.home.aop.Target.save())"></aop:after-throwing>
+                                pointcut="execution(* com.home.aop_xml.Target.save())"></aop:after-throwing>
             <aop:after-returning method="afterReturning"
-                                 pointcut="execution(public void com.home.aop.Target.save())"></aop:after-returning>
+                                 pointcut="execution(public void com.home.aop_xml.Target.save())"></aop:after-returning>
             <aop:after method="after" pointcut-ref="myPointcut"></aop:after>
         </aop:aspect>
     </aop:config>
