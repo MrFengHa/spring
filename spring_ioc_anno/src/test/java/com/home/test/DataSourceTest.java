@@ -4,6 +4,8 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidPooledConnection;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.beans.PropertyVetoException;
 import java.sql.Connection;
@@ -17,6 +19,18 @@ import java.util.ResourceBundle;
  * @create 2020/11/25 17:57
  */
 public class DataSourceTest {
+
+    @Test
+    /**
+     * 测试spring容器创建Druid数据源
+     */
+    public void testDruidSpring() throws Exception {
+        ApplicationContext app = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+        DruidDataSource dataSource =  app.getBean(DruidDataSource.class);
+        DruidPooledConnection connection =  dataSource.getConnection();
+        System.out.println(connection);
+        connection.close();
+    }
     @Test
     /**
      * 测试手动创建Druid数据源(加载配置文件)
