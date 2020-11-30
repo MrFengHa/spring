@@ -1,9 +1,9 @@
 package com.home.web;
 
-import com.home.listener.WebApplicationContextUtils;
 import com.home.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -24,7 +24,8 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContext servletContext = this.getServletContext();
 
-        ApplicationContext app = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+        //ApplicationContext app = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+        ApplicationContext app=WebApplicationContextUtils.getWebApplicationContext(servletContext);
         UserService userService = app.getBean(UserService.class);
         userService.save();
     }
