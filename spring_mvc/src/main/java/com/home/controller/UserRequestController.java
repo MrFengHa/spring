@@ -3,6 +3,7 @@ package com.home.controller;
 import com.home.domain.User;
 import com.home.domain.VO;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -17,6 +18,19 @@ import java.util.List;
 @Controller
 
 public class UserRequestController {
+
+
+    @ResponseBody
+    @RequestMapping("quick15")
+    public void save05(@RequestBody List<User> userList){
+        System.out.println(userList);
+    }
+
+
+    /**
+     * 使用第三个类获取集合参数
+     * @param vo
+     */
     @ResponseBody
     @RequestMapping("quick14")
     public void save04(VO vo){
