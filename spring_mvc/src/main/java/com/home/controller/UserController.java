@@ -2,6 +2,7 @@ package com.home.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 文件描述
@@ -11,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class UserController {
+
+
+
     @RequestMapping("/quick")
     public String save(){
         System.out.println("Controller save running");
-        return "success.jsp";
+        return "success";
     }
 }
