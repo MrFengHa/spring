@@ -28,6 +28,7 @@
     <mvc:annotation-driven/>
 
     <!--    开放资源的访问-->
-    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
-    <mvc:resources mapping="/image/**" location="/image/"></mvc:resources>
+    <!--    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>-->
+    <!--    <mvc:resources mapping="/image/**" location="/image/"></mvc:resources>-->
+    <mvc:default-servlet-handler/>
 </beans>
