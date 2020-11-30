@@ -19,12 +19,20 @@ import java.util.List;
 @Controller
 
 public class UserRequestController {
+    /**、
+     * 使用@Requestparam获取不同名参数
+     * @param username
+     */
     @ResponseBody
     @RequestMapping("quick16")
     public void save06(@RequestParam("name") String username){
         System.out.println(username);
     }
 
+    /**
+     * 获取List集合参数
+     * @param userList
+     */
     @ResponseBody
     @RequestMapping("quick15")
     public void save05(@RequestBody List<User> userList){
