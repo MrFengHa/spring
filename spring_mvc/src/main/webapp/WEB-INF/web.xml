@@ -36,7 +36,7 @@
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/userServlet</url-pattern>
     </servlet-mapping>
-
+    <!--    配置全局过滤更改编码-->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -44,10 +44,6 @@
             <param-name>encoding</param-name>
             <param-value>utf-8</param-value>
         </init-param>
-        <!-- <init-param>
-            <param-name>forceEncoding</param-name>
-            <param-value>true</param-value>
-        </init-param> -->
     </filter>
     <filter-mapping>
         <filter-name>CharacterEncodingFilter</filter-name>
