@@ -22,7 +22,7 @@ import java.io.IOException;
  * @create 2020/11/30 11:55
  */
 @Controller
-public class UserController {
+public class UserResponseController {
 
 
     /**
