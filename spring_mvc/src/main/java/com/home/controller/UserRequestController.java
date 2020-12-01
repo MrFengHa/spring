@@ -5,6 +5,7 @@ import com.home.domain.VO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,6 +17,15 @@ import java.util.List;
 @Controller
 
 public class UserRequestController {
+    /**
+     * 自定义类型转换器
+     * @param date
+     */
+    @ResponseBody
+    @RequestMapping("quick18")
+    public void save08(Date date){
+        System.out.println(date);
+    }
     /**
      * username
      * @param username

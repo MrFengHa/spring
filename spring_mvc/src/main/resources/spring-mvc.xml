@@ -25,10 +25,18 @@
 
 
     <!--    mvc的注解驱动-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionService"/>
 
     <!--    开放资源的访问-->
     <!--    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>-->
     <!--    <mvc:resources mapping="/image/**" location="/image/"></mvc:resources>-->
     <mvc:default-servlet-handler/>
+    <!--声明转换器-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.home.converter.DateConversion"></bean>
+            </list>
+        </property>
+    </bean>
 </beans>
