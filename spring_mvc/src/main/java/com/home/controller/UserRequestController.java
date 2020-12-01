@@ -3,10 +3,7 @@ package com.home.controller;
 import com.home.domain.User;
 import com.home.domain.VO;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,7 +16,16 @@ import java.util.List;
 @Controller
 
 public class UserRequestController {
-    /**、
+    /**
+     * username
+     * @param username
+     */
+    @ResponseBody
+    @RequestMapping("quick17/{username}")
+    public void save07(@PathVariable("username") String username){
+        System.out.println(username);
+    }
+    /**
      * 使用@Requestparam获取不同名参数
      * @param username
      */
