@@ -4,7 +4,10 @@ import com.home.domain.User;
 import com.home.domain.VO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +20,39 @@ import java.util.List;
 @Controller
 
 public class UserRequestController {
+
+    /**
+     * 获取上传文件
+     */
+    @ResponseBody
+    @RequestMapping("quick21")
+    public void save11(String username, MultipartFile upload) throws IOException {
+        System.out.println(username);
+        //获得上传文件的名称
+       String fileName= upload.getOriginalFilename();
+
+        upload.transferTo(new File("c:\\upload\\"+fileName));
+
+    }
+
+    /**
+     * 获取cookie
+     * @param jsessionid
+     */
+    @ResponseBody
+    @RequestMapping("quick20")
+    public void save10(@CookieValue(value = "JSESSIONID") String jsessionid){
+        System.out.println(jsessionid);
+    }
+    /**
+     * 获取请求头
+     * @param user_agent
+     */
+    @ResponseBody
+    @RequestMapping("quick19")
+    public void save09(@RequestHeader(value = "User-Agent") String user_agent){
+        System.out.println(user_agent);
+    }
     /**
      * 自定义类型转换器
      * @param date
