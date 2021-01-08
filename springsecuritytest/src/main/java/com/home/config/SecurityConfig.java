@@ -35,12 +35,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //登录访问路径
                 .loginProcessingUrl("/user/login")
                 //登录成功之后跳转的路径
-                .defaultSuccessUrl("/main.html").permitAll()
+                .defaultSuccessUrl("/test/index").permitAll()
                 .and().authorizeRequests()
                 //不需要认证可以直接访问
-                .antMatchers("/", "/test/hello", "/user/login","/image/*").permitAll()
+                .antMatchers("/", "/test/hello", "/user/login", "/image/*").permitAll()
+                //1只有具有role权限才能访问 hasAuthority
+                //.antMatchers("/test/index").hasAuthority("role")
+                //2只要用户权限是其中一个就可以访问
+                //.antMatchers("/test/index").hasAnyAuthority("admin,role")
+                //基于角色的访问控制
+                //.antMatchers("/test/index").hasRole("sale")
+                //只要用户包含相应的角色就可以
+                .antMatchers("/test/index").hasAnyRole("sale1,user")
                 //所有请求必须认证后才能访问
                 .anyRequest().authenticated()
+                //设置没有访问权限的页面
+                .and().exceptionHandling().accessDeniedPage("/unauth.html")
                 //关闭csrf防护
                 .and().csrf().disable();
     }

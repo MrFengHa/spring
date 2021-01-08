@@ -33,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (user==null){
             throw new UsernameNotFoundException("用户名不存在");
         }
-        List<GrantedAuthority> authorities = AuthorityUtils.commaSeparatedStringToAuthorityList("role");
+        List<GrantedAuthority> authorities = AuthorityUtils.commaSeparatedStringToAuthorityList("role,ROLE_sale");
         return new User(user.getUsername(), passwordEncoder.encode(user.getPassword()),authorities );
     }
 }
