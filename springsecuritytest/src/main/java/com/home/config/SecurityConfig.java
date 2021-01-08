@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //基于角色的访问控制
                 //.antMatchers("/test/index").hasRole("sale")
                 //只要用户包含相应的角色就可以
-                .antMatchers("/test/index").hasAnyRole("sale1,user")
+                //.antMatchers("/test/index").hasAnyRole("sale1,user")
                 //所有请求必须认证后才能访问
                 .anyRequest().authenticated()
                 //设置没有访问权限的页面
