@@ -84,6 +84,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //关闭csrf防护
                 .and().csrf().disable();
+        //开启退出功能
+        //.logout().logoutUrl("logout.html");
+        //访问被拒绝是前往的页面
+        //.exceptionHandling().accessDeniedPage("index.html");
     }
 
     @Bean
